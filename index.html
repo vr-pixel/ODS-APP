@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ODS</title>
+  <!-- Página "lanzadora" de la app ODS de 24hs Security: da el ícono rojo con ODS
+       al agregarla a la pantalla de inicio (Android y iPhone) y a la pestaña en la
+       compu, y enseguida abre la app de verdad (Apps Script). -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="ods-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#ec1d24">
+  <meta name="apple-mobile-web-app-title" content="ODS">
+  <style>
+    html, body { margin: 0; height: 100%; }
+    body { background: #ec1d24; color: #fff; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+    b { font-size: 72px; font-weight: 900; letter-spacing: -2px; line-height: 1; }
+    span { font-size: 14px; letter-spacing: 3px; opacity: .9; }
+    a { color: #fff; font-size: 13px; margin-top: 18px; opacity: .85; }
+  </style>
+</head>
+<body>
+  <b>ODS</b>
+  <span>24hs SECURITY</span>
+  <a id="ir" href="#">Abrir la app</a>
+  <script>
+    // La dirección de la app publicada (Implementar > Administrar implementaciones > URL de la app web, termina en /exec).
+    var APP_URL = 'https://script.google.com/a/macros/24hs.com.ar/s/AKfycbyjiw0zYyoQG5LXOhRsIL-BCbSA-0XbL1nVI3trw89eYAkkth-FLMuuqbADpEJrrLSa/exec';
+    document.getElementById('ir').href = APP_URL;
+    setTimeout(function () { location.replace(APP_URL); }, 350);
+  </script>
+</body>
+</html>
